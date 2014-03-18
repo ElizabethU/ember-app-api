@@ -1,5 +1,7 @@
 EmberApi::Application.routes.draw do
   defaults format: :json do 
+    get "/orders", to: "orders#index"
+    get "/order/:id", to: "orders#show"
     get "/products", to: "products#index"
     get "/product/:id", to: "products#show"
   end
