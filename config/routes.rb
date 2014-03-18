@@ -6,6 +6,8 @@ EmberApi::Application.routes.draw do
     get "/item/:id", to: "items#show"
     get "/products", to: "products#index"
     get "/product/:id", to: "products#show"
+    get "/users", to: "users#index"
+    get "/user/:id", to: "users#show"
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
