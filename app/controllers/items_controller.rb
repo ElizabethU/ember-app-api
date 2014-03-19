@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only [:update, :show, :destroy]
+  before_action :set_item, only: [:update, :show, :destroy]
 
   def create
     @item = Item.new(item_params)
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  
+
   def set_item
     @item = Item.find(params[:id])
   end
