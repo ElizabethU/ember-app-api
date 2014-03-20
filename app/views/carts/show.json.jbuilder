@@ -1,1 +1,4 @@
-json.extract! @cart, :id, :order_id, :created_at, :updated_at
+json.cart do
+  json.extract! @cart, :id
+  json.item @cart.items.pluck(:id)
+end

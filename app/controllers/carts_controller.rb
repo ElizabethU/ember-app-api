@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   before_action :set_cart, only: [:update, :show, :destroy]
 
   def create
-    @item = Cart.new(cart_params)
+    @cart = Cart.new
 
     if @cart.save
       render json: @cart, status: :created
@@ -37,7 +37,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
   end
 
-  def item_params
-    params.require(:item).permit(:order_id)
+  def cart_params
+    params.require(:cart).permit(:order_id)
   end
 end
