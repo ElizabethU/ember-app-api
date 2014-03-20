@@ -5,7 +5,7 @@ class CartsController < ApplicationController
     @cart = Cart.new
 
     if @cart.save
-      render json: @cart, status: :created
+      render :show
     else
       render json: @cart.errors, status: :unprocessable_entity
     end

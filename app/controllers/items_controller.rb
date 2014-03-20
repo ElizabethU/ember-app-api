@@ -2,12 +2,9 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :show, :destroy]
 
   def create
-    @item = Item.new(item_params)
-
+    @item = ItemForm.new(params[:item]).item
     if @item.save
-      render json: @item, status: :created
-    else
-      render json: @item.errors, status: :unprocessable_entity
+      render :show
     end
   end
 
@@ -38,6 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:product, :quantity, :current_price)
+    params.require(:item).permit(:product, :quantity, :current_price, :cart)
   end
 end
