@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @order.save
-      render json: @order, status: :created
+      render 'show'
     else
       render json: @order.errors, status: :unprocessable_entity
     end
