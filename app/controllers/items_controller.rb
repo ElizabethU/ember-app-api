@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(ItemForm.new(params[:item]).attributes)
+      @item.save
       render "show"
     else
       render json: @item.errors, status: :unprocessable_entity

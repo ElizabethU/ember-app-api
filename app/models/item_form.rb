@@ -7,12 +7,10 @@ class ItemForm
   end
 
   def item
-    Item.new(permitted_values)
+    Item.new(attributes)
   end
 
-  def permitted_values
+  def attributes
     @item_hash.permit(:quantity, :product_id, :cart_id, :current_price)
   end
 end
-
-{cart: 1, product: 1, current_price: 1000}
